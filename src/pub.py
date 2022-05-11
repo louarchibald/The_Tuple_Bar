@@ -10,6 +10,16 @@ class Pub:
     def add_stock(self, drink):
         self.drinks.append(drink)
 
+     
     def sell_drink(self, drink, customer):
-        self.till += drink.price
-        customer.wallet -= drink.price
+        if customer.age >= 18 and customer.drunkenness < 25.8:
+            self.till += drink.price
+            customer.wallet -= drink.price
+            customer.drunkenness += drink.alcohol_level
+
+    def sell_food(self, food, customer):
+        customer.drunkenness -= food.rejuvenation_level
+        customer.wallet -= food.price
+        
+
+   
